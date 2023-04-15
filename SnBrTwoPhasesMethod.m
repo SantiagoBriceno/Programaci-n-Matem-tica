@@ -29,6 +29,7 @@ function [existe mayor indice_columna] = buscando_positivo(matriz)
   indice_columna = 0;
   fprintf("Buscamos en la fila de Z los numeros más positivos\n\n");
   for j=1:6
+
     if(mayor < matriz(1,j))
       fprintf("Valor positivo = %.6f \n\n",matriz(1,j))
       existe = true;
@@ -98,7 +99,7 @@ endfunction
 #Inicio del Bucle de la Primera Fase
 [positivo mayor columna] = buscando_positivo(matriz_inicio);
 i = 0;
-while(positivo==1 && i!= 5)
+while(mayor > true && i!= 5)
   i += 1;
   fprintf("\n\n\t\tIteracion #%d\n\n",i);
   fprintf("Encontramos el valor más positivo de la tabla\n");
@@ -117,8 +118,9 @@ endwhile
 
 fprintf("PUNTO DE INFLECCIÓN DEL METODO DE 2 FASES. Culmunando la primera.");
 
-matriz_inicio(:, 6:8) = [];
-Z = [-4, -1, 0, 0, 0, 0];
+matriz_inicio(:, 5:6) = [];
+
+Z = [-4, -1, 0, 0, 0];
 
 
 
@@ -135,10 +137,10 @@ matriz_inicio(1,:) = matriz_inicio(1,:) + (4*(matriz_inicio(2,:))) + matriz_inic
 fprintf("Matriz actulizada: \n\n")
 disp(matriz_inicio)
 
-fprintf("\nValrores Obtenidos:\n\t Z = %.6f \n\t X1 = %.6f \n\t X2 = %.6f",matriz_inicio(1,6),matriz_inicio(2,6),matriz_inicio(3,6));
-Z = matriz_inicio(1,6);
-X1 = matriz_inicio(2,6);
-X2 = matriz_inicio(3,6);
+fprintf("\nValrores Obtenidos:\n\t Z = %.6f \n\t X1 = %.6f \n\t X2 = %.6f",matriz_inicio(1,5),matriz_inicio(2,5),matriz_inicio(3,5));
+Z = matriz_inicio(1,5);
+X1 = matriz_inicio(2,5);
+X2 = matriz_inicio(3,5);
 fprintf("\n\n\t\t COMPROBACION:\n\nYa que no hay valores positivos procedemos a evaluar los resultados obtenidos:\n")
 fprintf("\n\t Z = 4*%.6f + %.6f =",X1,X2);
 disp(Z)
